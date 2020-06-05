@@ -15,3 +15,8 @@ def test_main_base64_true():
         result["Plaintext"]
         == "It was the best of times, it was the worst of times. There is only so much road in Dover one can lay."
     )
+
+
+def test_main_hash_true():
+    result = main(text="5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8")
+    assert result["Plaintext"] == "password"
