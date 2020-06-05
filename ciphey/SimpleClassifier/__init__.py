@@ -9,6 +9,17 @@ class filterResults:
 
 
 def filterOut(data: str) -> filterResults:
+    """Filters out options which it cannot be
+        
+        For example, it cannot be binary if it contains a 6.
+
+        args:
+            data -> the data we want to check for filtration
+
+        results:
+            filterResults -> the results of the filtration system
+
+        """
     ret = filterResults()
     ret.lengths.add(len(data))
     # First, gather the encodings, so that we can get the lengths

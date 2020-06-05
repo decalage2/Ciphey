@@ -23,6 +23,7 @@ try:
     from Decryptor.basicEncryption.basic_parent import BasicParent
     from Decryptor.Hash.hashParent import HashParent
     from Decryptor.Encoding.encodingParent import EncodingParent
+    from SimpleClassifier import SimpleClassifier
 except ModuleNotFoundError:
     from ciphey.languageCheckerMod import LanguageChecker as lc
     from ciphey.neuralNetworkMod.nn import NeuralNetwork
@@ -98,7 +99,7 @@ class Ciphey:
             },
         }
 
-        logger.debug(
+        logger.trace(
             f"The probability table before 0.1 in __main__ is {self.what_to_choose}"
         )
 
@@ -108,7 +109,7 @@ class Ciphey:
                 # Sets all 0 probabilities to 0.01, we want Ciphey to try all decryptions.
                 if v < 0.01:
                     self.what_to_choose[key][k] = 0.01
-        logger.debug(
+        logger.trace(
             f"The probability table after 0.1 in __main__ is {self.what_to_choose}"
         )
 
@@ -116,7 +117,7 @@ class Ciphey:
 
         # Creates and prints the probability table
         if not self.greppable:
-            logger.debug(f"Self.greppable is {self.greppable}")
+            logger.trace(f"Self.greppable is {self.greppable}")
             self.produceprobtable(self.what_to_choose)
 
         logger.debug(
@@ -155,7 +156,7 @@ class Ciphey:
             None, but prints the probability table.
 
         """
-        logger.debug(f"Producing log table")
+        logger.trace(f"Producing log table")
         table = Table(show_header=True, header_style="bold magenta")
         table.add_column("Name of Cipher")
         table.add_column("Probability", justify="right")
@@ -169,14 +170,14 @@ class Ciphey:
                 if value == 0.01:
                     continue
                 # gets the string ready to print
-                logger.debug(f"Key is {str(key)} and value is {str(value)}")
+                logger.trace(f"Key is {str(key)} and value is {str(value)}")
                 val: int = round(self.mh.percentage(value, 1), 2)
                 key_str: str = str(key).capitalize()
                 # converts "Bases" to "Base"
                 if "Base" in key_str:
                     key_str = key_str[0:-2]
                 sorted_dic[key_str] = val
-                logger.debug(f"The value as percentage is {val} and key is {key_str}")
+                logger.trace(f"The value as percentage is {val} and key is {key_str}")
         sorted_dic: dict = {
             k: v
             for k, v in sorted(
@@ -202,10 +203,10 @@ class Ciphey:
         # mainly used to control the progress bar
         output = None
         if self.greppable:
-            logger.debug("__main__ is running as greppable")
+            logger.trace("__main__ is running as greppable")
             output = self.decrypt_normal()
         else:
-            logger.debug("__main__ is running with progress bar")
+            logger.trace("__main__ is running with progress bar")
             output = self.decrypt_normal()
         return output
 
@@ -228,19 +229,19 @@ class Ciphey:
             print(f"Returning {self.text}")
             return self.text
 
-        logger.debug(f"In decrypt_normal")
+        logger.trace(f"In decrypt_normal")
         for key, val in self.what_to_choose.items():
             # https://stackoverflow.com/questions/4843173/how-to-check-if-type-of-a-variable-is-string
             if not isinstance(key, str):
                 key.setProbTable(val)
                 ret: dict = key.decrypt(self.text)
-                logger.debug(f"Decrypt normal in __main__ ret is {ret}")
+                logger.trace(f"Decrypt normal in __main__ ret is {ret}")
                 logger.debug(
                     f"The plaintext is {ret['Plaintext']} and the extra information is {ret['Cipher']} and {ret['Extra Information']}"
                 )
 
                 if ret["IsPlaintext?"]:
-                    logger.debug(f"Ret is plaintext")
+                    logger.trace(f"Ret is plaintext")
                     print(ret["Plaintext"])
                     if self.cipher:
                         if ret["Extra Information"] is not None:
