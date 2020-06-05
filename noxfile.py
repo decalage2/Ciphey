@@ -68,13 +68,12 @@ def coverage(session: Session) -> None:
     session.run("codecov", *session.posargs)
 
 
-
-# noxfile.py
-@nox.session(python="3.8")
-def docs(session: Session) -> None:
-    """Build the documentation."""
-    install_with_constraints(session, "sphinx")
-    session.run("sphinx-build", "docs", "docs/_build")
+# # noxfile.py
+# @nox.session(python="3.8")
+# def docs(session: Session) -> None:
+#     """Build the documentation."""
+#     install_with_constraints(session, "sphinx")
+#     session.run("sphinx-build", "docs", "docs/_build")
 
 # python=["3.8", "3.7", "3.6"])
 @nox.session(python="3.8")
