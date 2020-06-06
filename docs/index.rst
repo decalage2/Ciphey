@@ -91,6 +91,7 @@ Read the documentation if you want to learn more about the functions.
         References <reference.rst>
         Language Checker <lc.rst>
         Neural Network <nn.rst>
+        What Encryptions are available? <encryptions.rst>
 
 Indices and tables
 ==================

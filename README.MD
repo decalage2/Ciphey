@@ -72,6 +72,6 @@ This is feature is expected to expand in the next version.
 ## Contributing
 Please read the contributing file.
 ## Code Contributors
-[Cyclic3](https://github.com/Cyclic3)
+Ciphey was originally invented by[Brandon](https://github.com/brandonskerritt) but it wouldn't be what it is today without the help of [Cyclic3](https://github.com/Cyclic3)
 ## Financial Contributors
 Please donate to us, we're students and we want huel.
