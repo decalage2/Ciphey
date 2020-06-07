@@ -1,7 +1,9 @@
 try:
     import SimpleClassifier.base
+    sc = SimpleClassifier.base
 except ModuleNotFoundError:
     import ciphey.SimpleClassifier.base
+    sc = ciphey.SimpleClassifier.base
 
 import cipheydists
 
@@ -10,7 +12,7 @@ def checkCharsIn(data: str, charset: set):
     return all(char in charset for char in data)
 
 
-class HexClassifier(SimpleClassifier.base.EncodingClassifier):
+class HexClassifier(sc.EncodingClassifier):
     def name():
         return "base16"
 
@@ -23,7 +25,7 @@ class HexClassifier(SimpleClassifier.base.EncodingClassifier):
         return {-(-len(data) // 2)}
 
 
-class Base64Classifier(SimpleClassifier.base.Classifier):
+class Base64Classifier(sc.Classifier):
     def name():
         return "base64"
 
@@ -33,7 +35,7 @@ class Base64Classifier(SimpleClassifier.base.Classifier):
         return {-(-len(data) // 3) * 4}
 
 
-class BinaryClassifier(SimpleClassifier.base.Classifier):
+class BinaryClassifier(sc.Classifier):
     def name():
         return "base2"
 
@@ -45,7 +47,7 @@ class BinaryClassifier(SimpleClassifier.base.Classifier):
         return {-(-len(data) // 2)}
 
 
-class DecimalClassifier(SimpleClassifier.base.Classifier):
+class DecimalClassifier(sc.Classifier):
     def name():
         return "base10"
 

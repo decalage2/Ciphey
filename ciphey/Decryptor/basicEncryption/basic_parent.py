@@ -64,6 +64,9 @@ class BasicParent:
 
         self.list_of_objects = [self.caesar, self.reverse, self.pig, self.trans]
 
+    def __name__(self):
+        return "basic"
+
     def decrypt(self, text):
         self.text = text
         from multiprocessing.dummy import Pool as ThreadPool

@@ -14,3 +14,6 @@ class HashParent:
 
     def setProbTable(self, val):
         pass
+
+    def __name__(self):
+        return "hash"
