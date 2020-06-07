@@ -1,4 +1,4 @@
-from Ciphey.ciphey.__main__ import main
+from Ciphey.ciphey.ciphey import main
 
 
 def test_argument_grep_true():
