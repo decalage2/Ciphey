@@ -31,6 +31,7 @@ except ModuleNotFoundError:
     from ciphey.Decryptor.Hash.hashParent import HashParent
     from ciphey.Decryptor.Encoding.encodingParent import EncodingParent
 
+from SimpleClassifier import filterOut
 
 try:
     import mathsHelper as mh
@@ -98,6 +99,11 @@ class Ciphey:
                 "morse": self.probability_distribution[11],
             },
         }
+
+        filter_out_object = filterOut(self.text)
+        filtered_hashes = filter_out_object.failed_hashes
+        filtered_encodings = filter_out_object.failed_encodings
+
 
         logger.trace(
             f"The probability table before 0.1 in __main__ is {self.what_to_choose}"

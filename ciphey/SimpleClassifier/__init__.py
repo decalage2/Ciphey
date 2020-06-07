@@ -35,4 +35,5 @@ def filterOut(data: str) -> filterResults:
         if hash.isImpossible(data, ret.lengths):
             ret.failed_hashes.add(hash.name())
 
+    print(ret)
     return ret
