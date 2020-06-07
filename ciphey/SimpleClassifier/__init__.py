@@ -1,6 +1,9 @@
-from SimpleClassifier.encoding import all_encoding_classifiers, all_encodings
-from SimpleClassifier.hashes import all_hash_classifiers, all_hashes
-
+try:
+    from SimpleClassifier.encoding import all_encoding_classifiers, all_encodings
+    from SimpleClassifier.hashes import all_hash_classifiers, all_hashes
+except ModuleNotFoundError:
+    from ciphey.SimpleClassifier.encoding import all_encoding_classifiers, all_encodings
+    from ciphey.SimpleClassifier.hashes import all_hash_classifiers, all_hashes
 
 class filterResults:
     failed_encodings = set()

@@ -23,15 +23,15 @@ try:
     from Decryptor.basicEncryption.basic_parent import BasicParent
     from Decryptor.Hash.hashParent import HashParent
     from Decryptor.Encoding.encodingParent import EncodingParent
-    from SimpleClassifier import SimpleClassifier
+    from SimpleClassifier import filterOut
 except ModuleNotFoundError:
     from ciphey.languageCheckerMod import LanguageChecker as lc
     from ciphey.neuralNetworkMod.nn import NeuralNetwork
     from ciphey.Decryptor.basicEncryption.basic_parent import BasicParent
     from ciphey.Decryptor.Hash.hashParent import HashParent
     from ciphey.Decryptor.Encoding.encodingParent import EncodingParent
+    from ciphey.SimpleClassifier import filterOut
 
-from SimpleClassifier import filterOut
 
 try:
     import mathsHelper as mh

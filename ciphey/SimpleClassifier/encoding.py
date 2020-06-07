@@ -1,4 +1,7 @@
-import SimpleClassifier.base
+try:
+    import SimpleClassifier.base
+except ModuleNotFoundError:
+    import ciphey.SimpleClassifier.base
 
 import cipheydists
 

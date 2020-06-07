@@ -1,4 +1,7 @@
-from SimpleClassifier.base import LengthInformedClassifier
+try:
+    from SimpleClassifier.base import LengthInformedClassifier
+except ModuleNotFoundError:
+    from ciphey.SimpleClassifier.base import LengthInformedClassifier
 
 import cipheydists
 
